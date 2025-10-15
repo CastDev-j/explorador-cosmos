@@ -17,5 +17,5 @@ export const authors = [
   "María López",
   "Luis García",
 ];
-export const githubRepo = "https://github.com/CastDev-j/explorador-cosmos";
+export const githubRepo = "https://github.com/CastDev-j/ecos-estelares";
 export const SITE_NAME = "Ecos Estelares";

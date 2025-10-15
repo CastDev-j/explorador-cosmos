@@ -1,5 +1,5 @@
 {
-  "name": "explorador-cosmos",
+  "name": "ecos-estelares",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.52.0",
+    "@clerk/themes": "^2.4.26",
     "@gsap/react": "^2.1.2",
     "@react-three/drei": "^10.7.6",
     "@react-three/fiber": "^9.4.0",

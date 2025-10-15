@@ -42,6 +42,6 @@ body {
     font-family: var(--app-font);
 }
 
-body {
-    overflow-y: scroll;
+body::-webkit-scrollbar {
+    display: none;
 }
