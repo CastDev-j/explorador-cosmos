@@ -12,10 +12,10 @@ export const routes: Route[] = [
 ];
 
 export const authors = [
-  "Andrés Castillo",
-  "Juan Pérez",
-  "María López",
-  "Luis García",
+  "Andrés Castillo Jiménez",
+  "Sugey Gutiérrez Calero",
+  "Angel González Mejia",
+  "Gibran Aron Herrera Herrera",
 ];
 export const githubRepo = "https://github.com/CastDev-j/ecos-estelares";
 export const SITE_NAME = "Ecos Estelares";
