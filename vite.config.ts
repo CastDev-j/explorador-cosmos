@@ -18,4 +18,9 @@ export default defineConfig({
     }),
     tailwindcss(),
   ],
+  build: {
+    rolldownOptions: {
+      external: ["@rolldown/binding-linux-x64-gnu"],
+    },
+  },
 });
