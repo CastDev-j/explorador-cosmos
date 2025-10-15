@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ImEarth } from "react-icons/im";
-import { routes } from "../../config";
+import { routes, SITE_NAME } from "../../config";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import { NavLink } from "react-router";
 import { cn } from "@/lib/cn";
@@ -62,7 +62,7 @@ const Header: React.FC = () => {
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-md flex items-center gap-2">
               <ImEarth className="text-indigo-500 w-6 h-6" />
-              <span className="font-semibold">Explorador Cosmos</span>
+              <span className="font-semibold">{SITE_NAME}</span>
             </div>
           </div>
 
