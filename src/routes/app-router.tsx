@@ -4,8 +4,9 @@ import MainLayout from "@/layouts/main-layout";
 import Test from "@/modules/test/test";
 
 const AppRouter = () => {
-  const data = useAuth();
-  console.log(data);
+  const { isSignedIn } = useAuth();
+
+  console.log(isSignedIn);
 
   return (
     <BrowserRouter>
