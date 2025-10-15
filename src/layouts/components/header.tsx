@@ -10,7 +10,6 @@ import {
   SignedIn,
   SignedOut,
   SignInButton,
-  SignOutButton,
   useAuth,
   UserButton,
 } from "@clerk/clerk-react";
@@ -201,19 +200,6 @@ const Header: React.FC = () => {
                 </button>
               </SignInButton>
             </SignedOut>
-            <SignedIn>
-              <SignOutButton>
-                <button
-                  className={cn(
-                    "w-full px-4 py-2 rounded-md text-sm font-medium transition-colors",
-                    "bg-stone-800 text-stone-200 hover:bg-stone-700",
-                    "border border-stone-600"
-                  )}
-                >
-                  Cerrar Sesión
-                </button>
-              </SignOutButton>
-            </SignedIn>
           </div>
         </div>
       </div>
