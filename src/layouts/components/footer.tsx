@@ -1,6 +1,6 @@
 import React from "react";
 import { FiGithub } from "react-icons/fi";
-import { authors, githubRepo, routes } from "../../config";
+import { authors, githubRepo, routes, SITE_NAME } from "../../config";
 import { NavLink } from "react-router";
 import { cn } from "@/lib/cn";
 
@@ -15,9 +15,7 @@ const Footer: React.FC = () => {
               Proyecto Final Tópicos Avanzados de Programación
             </h3>
             <p className="text-pretty text-xs md:text-sm mb-3">
-              <span className="text-indigo-500 font-semibold">
-                Explorador Cosmos
-              </span>{" "}
+              <span className="text-indigo-500 font-semibold">{SITE_NAME}</span>{" "}
               es una aplicación que consume servicios web de la NASA, brindando
               acceso a información sobre misiones espaciales y descubrimientos
               astronómicos.
@@ -82,7 +80,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="mt-8 pt-4 border-t border-stone-800 text-xs text-center text-stone-500">
-          © {new Date().getFullYear()} Explorador Cosmos — Todos los derechos
+          © {new Date().getFullYear()} {SITE_NAME} — Todos los derechos
           reservados.
         </div>
       </div>

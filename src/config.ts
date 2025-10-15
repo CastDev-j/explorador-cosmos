@@ -11,7 +11,6 @@ export const routes: Route[] = [
   { label: "EONET", path: "/eonet" },
 ];
 
-// Centralized app metadata
 export const authors = [
   "Andrés Castillo",
   "Juan Pérez",
@@ -19,3 +18,4 @@ export const authors = [
   "Luis García",
 ];
 export const githubRepo = "https://github.com/CastDev-j/explorador-cosmos";
+export const SITE_NAME = "Ecos Estelares";
