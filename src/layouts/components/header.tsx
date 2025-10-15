@@ -10,12 +10,15 @@ import {
   SignedIn,
   SignedOut,
   SignInButton,
+  SignOutButton,
+  useAuth,
   UserButton,
 } from "@clerk/clerk-react";
 
 const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
   const mobileMenuRef = React.useRef<HTMLDivElement | null>(null);
+  const { isSignedIn } = useAuth();
 
   useGSAP(() => {
     if (!mobileMenuRef.current) return;
@@ -129,22 +132,6 @@ const Header: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2 md:hidden">
-            <div className="md:hidden">
-              <SignedIn>
-                <UserButton
-                  appearance={{
-                    elements: {
-                      avatarBox: "w-7 h-7",
-                      userButtonTrigger: "focus:shadow-none hover:bg-stone-700",
-                    },
-                  }}
-                  fallback={
-                    <div className="w-7 h-7 bg-stone-700 rounded-full" />
-                  }
-                />
-              </SignedIn>
-            </div>
-
             <button
               aria-label="Open menu"
               onClick={handleMenuClick}
@@ -166,6 +153,23 @@ const Header: React.FC = () => {
         style={{ display: open ? "block" : "none" }}
       >
         <div className="px-2 pt-2 pb-4 space-y-1">
+          {isSignedIn && (
+            <div className="py-2 flex items-center justify-end px-3">
+              <SignedIn>
+                <UserButton
+                  appearance={{
+                    elements: {
+                      avatarBox: "w-7 h-7",
+                      userButtonTrigger: "focus:shadow-none hover:bg-stone-700",
+                    },
+                  }}
+                  fallback={
+                    <div className="w-7 h-7 bg-stone-700 rounded-full" />
+                  }
+                />
+              </SignedIn>
+            </div>
+          )}
           {routes.map((r) => (
             <NavLink
               key={r.path}
@@ -197,6 +201,19 @@ const Header: React.FC = () => {
                 </button>
               </SignInButton>
             </SignedOut>
+            <SignedIn>
+              <SignOutButton>
+                <button
+                  className={cn(
+                    "w-full px-4 py-2 rounded-md text-sm font-medium transition-colors",
+                    "bg-stone-800 text-stone-200 hover:bg-stone-700",
+                    "border border-stone-600"
+                  )}
+                >
+                  Cerrar Sesión
+                </button>
+              </SignOutButton>
+            </SignedIn>
           </div>
         </div>
       </div>
