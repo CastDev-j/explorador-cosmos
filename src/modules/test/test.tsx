@@ -57,7 +57,7 @@ const Test: FC = () => {
           <article className="animate-fade">
             <button
               onClick={inc}
-              className="group flex justify-between px-3 py-2 rounded-md w-full bg-white items-center gap-8 outline-gray-200 outline-2 hover:outline-4 transition-all duration-150"
+              className="group flex justify-between px-3 py-2 rounded-md w-full bg-white items-center gap-8 outline-stone-200 outline-2 hover:outline-4 transition-all duration-150"
             >
               <div ref={container} className="w-full">
                 <FaSpaceShuttle aria-hidden className="shuttle-icon" />
