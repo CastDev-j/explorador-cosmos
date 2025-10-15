@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
               Proyecto Final Tópicos Avanzados de Programación
             </h3>
             <p className="text-pretty text-xs md:text-sm mb-3">
-              <span className="text-rose-500 font-semibold">
+              <span className="text-indigo-500 font-semibold">
                 Explorador Cosmos
               </span>{" "}
               es una aplicación que consume servicios web de la NASA, brindando

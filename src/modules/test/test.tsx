@@ -47,7 +47,7 @@ const Test: FC = () => {
   );
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white text-neutral-950 p-6">
+    <div className="flex items-center justify-center bg-white text-neutral-950 p-6">
       <main className="w-full max-w-[980px]">
         <section className="flex flex-col gap-3 mt-4">
           <div className="h-90 bg-neutral-200 animate-fade">

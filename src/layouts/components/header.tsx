@@ -61,7 +61,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-md flex items-center gap-2">
-              <ImEarth className="text-rose-500 w-6 h-6" />
+              <ImEarth className="text-indigo-500 w-6 h-6" />
               <span className="font-semibold">Explorador Cosmos</span>
             </div>
           </div>
