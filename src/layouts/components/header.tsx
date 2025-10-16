@@ -147,7 +147,7 @@ const Header: React.FC = () => {
       </div>
 
       <div
-        className="md:hidden overflow-hidden bg-stone-900 border-t border-stone-700 absolute top-16 left-0 right-0 shadow-lg"
+        className="md:hidden overflow-hidden bg-stone-950 border-t border-stone-700 absolute top-16 left-0 right-0 shadow-lg"
         ref={mobileMenuRef}
         style={{ display: open ? "block" : "none" }}
       >
@@ -163,7 +163,7 @@ const Header: React.FC = () => {
                     },
                   }}
                   fallback={
-                    <div className="w-7 h-7 bg-stone-700 rounded-full" />
+                    <div className="w-7 h-7 bg-stone-800 rounded-full" />
                   }
                 />
               </SignedIn>
@@ -177,8 +177,8 @@ const Header: React.FC = () => {
               className={({ isActive }: { isActive: boolean }) =>
                 cn(
                   "block px-3 py-3 rounded-md text-base font-medium transition-colors",
-                  "text-stone-300 hover:text-white hover:bg-stone-800",
-                  isActive && "text-white bg-stone-800"
+                  "text-stone-300 hover:text-white hover:bg-stone-900",
+                  isActive && "text-white bg-stone-900"
                 )
               }
             >
@@ -192,8 +192,8 @@ const Header: React.FC = () => {
                 <button
                   className={cn(
                     "w-full px-4 py-2 rounded-md text-sm font-medium transition-colors",
-                    "bg-stone-800 text-stone-200 hover:bg-stone-700",
-                    "border border-stone-600"
+                    "bg-stone-900 text-stone-200 hover:bg-stone-800",
+                    "border border-stone-800"
                   )}
                 >
                   Iniciar Sesión
