@@ -5,7 +5,7 @@ import Hero from "./components/hero";
 
 const IndexPage = () => {
   return (
-    <Container className="space-y-12 " animated={false}>
+    <Container className="space-y-12" animated={false}>
       {/*Hero */}
       <Hero />
       {/* Header */}

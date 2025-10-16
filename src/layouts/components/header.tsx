@@ -147,7 +147,7 @@ const Header: React.FC = () => {
       </div>
 
       <div
-        className="md:hidden overflow-hidden bg-stone-900 border-t border-stone-700"
+        className="md:hidden overflow-hidden bg-stone-900 border-t border-stone-700 absolute top-16 left-0 right-0 shadow-lg"
         ref={mobileMenuRef}
         style={{ display: open ? "block" : "none" }}
       >
