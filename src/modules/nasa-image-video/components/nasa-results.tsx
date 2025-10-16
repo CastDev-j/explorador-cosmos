@@ -65,7 +65,7 @@ const NASAResults: React.FC<Props> = ({ data }) => {
           return (
             <article
               key={itemData.nasa_id || index}
-              className="bg-white  rounded-lg shadow-md overflow-hidden transition-shadow duration-300"
+              className="bg-white rounded-sm shadow-md overflow-hidden transition-shadow duration-300"
             >
               {previewImage && (
                 <div className="relative h-48 bg-stone-200 overflow-hidden">

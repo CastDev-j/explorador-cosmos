@@ -15,7 +15,7 @@ const NASAResultsLoading: React.FC<Props> = ({ itemCount = 9 }) => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {Array.from({ length: itemCount }).map((_, index) => (
-          <article key={index} className="bg-white rounded-lg overflow-hidden">
+          <article key={index} className="bg-white rounded-sm overflow-hidden">
             <Skeleton width="100%" height={192} rounded={false} />
 
             <div className="p-4 space-y-3">
