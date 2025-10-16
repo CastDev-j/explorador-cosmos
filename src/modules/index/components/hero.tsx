@@ -142,24 +142,18 @@ const Hero = () => {
       const width = window.innerWidth;
 
       if (width < 640) {
-        // Móvil - mantener la posición actual que luce perfecto
         setCameraPosition([12, 5, 4]);
       } else if (width < 1024) {
-        // Tablet - acercar un poco
         setCameraPosition([10, 4, 3]);
       } else if (width < 1536) {
-        // Desktop - acercar más
         setCameraPosition([8, 3, 2]);
       } else {
-        // Pantallas grandes - más cerca
         setCameraPosition([7, 3, 2]);
       }
     };
 
-    // Ejecutar al montar
     updateCameraPosition();
 
-    // Escuchar cambios de tamaño
     window.addEventListener("resize", updateCameraPosition);
 
     return () => window.removeEventListener("resize", updateCameraPosition);
