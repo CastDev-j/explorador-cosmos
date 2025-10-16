@@ -1,10 +1,5 @@
 import React, { useRef } from "react";
-import {
-  FaAngleLeft,
-  FaAngleRight,
-  FaAnglesLeft,
-  FaAnglesRight,
-} from "react-icons/fa6";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useNavigate, useSearchParams } from "react-router";
@@ -19,7 +14,7 @@ interface Props {
 const Pagination: React.FC<Props> = ({
   totalItems,
   itemsPerPage = 12,
-  maxVisiblePages = 4,
+  maxVisiblePages = 3,
   className = "",
 }) => {
   const navigate = useNavigate();
@@ -110,16 +105,6 @@ const Pagination: React.FC<Props> = ({
         className="flex items-center gap-1"
         aria-label="Paginación"
       >
-        {/* Primera página */}
-        <button
-          onClick={() => goToPage(1)}
-          disabled={currentPage === 1}
-          className="p-2 rounded-lg border border-stone-300  bg-white  text-stone-700  hover:bg-stone-50 -700 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-white -stone-800 transition-colors duration-200"
-          aria-label="Primera página"
-        >
-          <FaAnglesLeft className="w-4 h-4" />
-        </button>
-
         {/* Página anterior */}
         <button
           onClick={() => goToPage(currentPage - 1)}
@@ -174,16 +159,6 @@ const Pagination: React.FC<Props> = ({
           aria-label="Página siguiente"
         >
           <FaAngleRight className="w-4 h-4" />
-        </button>
-
-        {/* Última página */}
-        <button
-          onClick={() => goToPage(totalPages)}
-          disabled={currentPage === totalPages}
-          className="p-2 rounded-lg border border-stone-300  bg-white  text-stone-700  hover:bg-stone-50 -700 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-white -stone-800 transition-colors duration-200"
-          aria-label="Última página"
-        >
-          <FaAnglesRight className="w-4 h-4" />
         </button>
       </nav>
     </div>
