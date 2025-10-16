@@ -3,7 +3,7 @@ import { useRef, useMemo, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import * as THREE from "three";
-import { Stars, OrbitControls } from "@react-three/drei";
+import { Stars } from "@react-three/drei";
 import { useProgress } from "@react-three/drei";
 import earthVertexShader from "../shaders/earth/vertex.glsl";
 import earthFragmentShader from "../shaders/earth/fragment.glsl";
@@ -178,7 +178,6 @@ const Hero = () => {
       <section className="absolute inset-0 w-full h-[95vh] bg-stone-950 -z-10 mt-16">
         <Canvas camera={{ position: cameraPosition, fov: 25 }}>
           <LoadingManager onLoaded={() => setIsLoaded(true)} />
-          <OrbitControls enableDamping enablePan={false} />
           <AnimatedEarth />
           <Stars
             radius={10}
