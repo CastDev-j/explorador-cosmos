@@ -1,7 +1,12 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import { useAuth } from "@clerk/clerk-react";
 import MainLayout from "@/layouts/main-layout";
-import Test from "@/modules/test/test";
+import ComponentsPage from "@/modules/components/page";
+import IndexPage from "@/modules/index/index-page";
+import ApodPage from "@/modules/apod/apod-page";
+import NasaImageVideoPage from "@/modules/nasa-image-video/nasa-image-video-page";
+import MarsRoverPage from "@/modules/mars-rover/mars-rover-page";
+import EonetPage from "@/modules/eonet/eonet-page";
 
 const AppRouter = () => {
   const { isSignedIn } = useAuth();
@@ -12,23 +17,13 @@ const AppRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route index element={<Test />} />
-          <Route
-            path={"/apod"}
-            element={<div className="min-h-[40vh]">APOd</div>}
-          />
-          <Route
-            path={"/nasa"}
-            element={<div className="min-h-[40vh]">NASA</div>}
-          />
-          <Route
-            path={"/mars"}
-            element={<div className="min-h-[40vh]">Mars</div>}
-          />
-          <Route
-            path={"/eonet"}
-            element={<div className="min-h-[40vh]">EONET</div>}
-          />
+          <Route path="/components" element={<ComponentsPage />} />
+
+          <Route index element={<IndexPage />} />
+          <Route path={"/apod"} element={<ApodPage />} />
+          <Route path={"/nasa"} element={<NasaImageVideoPage />} />
+          <Route path={"/mars"} element={<MarsRoverPage />} />
+          <Route path={"/eonet"} element={<EonetPage />} />
           <Route path={"/*"} element={<Navigate to={"/"} />} />
         </Route>
       </Routes>
