@@ -3,7 +3,6 @@ import { useRef, useMemo, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import * as THREE from "three";
-import { Stars } from "@react-three/drei";
 import { useProgress } from "@react-three/drei";
 import earthVertexShader from "../shaders/earth/vertex.glsl";
 import earthFragmentShader from "../shaders/earth/fragment.glsl";
@@ -179,15 +178,6 @@ const Hero = () => {
         <Canvas camera={{ position: cameraPosition, fov: 25 }}>
           <LoadingManager onLoaded={() => setIsLoaded(true)} />
           <AnimatedEarth />
-          <Stars
-            radius={10}
-            depth={50}
-            count={5000}
-            factor={4}
-            saturation={0}
-            fade
-            speed={1}
-          />
         </Canvas>
       </section>
     </>

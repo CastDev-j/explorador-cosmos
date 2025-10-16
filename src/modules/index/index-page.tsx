@@ -16,15 +16,15 @@ const IndexPage = () => {
             align="center"
             className="text-white animate-fade-up animate-once animate-ease-in"
           >
-            Explorador Cosmos
+            Ecos Estelares
           </Title>
           <Paragraph
             size="sm"
             align="center"
             className="text-white/70 animate-fade-up animate-once animate-delay-100 animate-ease-in"
           >
-            Ecos Estelares - Explora misiones espaciales y descubrimientos
-            astronómicos de la NASA.
+            Explora misiones espaciales y descubrimientos astronómicos de la
+            NASA.
           </Paragraph>
         </div>
       </section>

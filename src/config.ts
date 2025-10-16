@@ -20,3 +20,10 @@ export const authors = [
 ];
 export const githubRepo = "https://github.com/CastDev-j/ecos-estelares";
 export const SITE_NAME = "Ecos Estelares";
+
+export const itemsPerPageOptions = {
+  nasa: 12,
+  mars: 12,
+  eonet: 12,
+  apod: 1,
+};
