@@ -1,21 +1,32 @@
 import { Container } from "@/components/ui/container";
-import { Highlight } from "@/components/ui/highlight";
 import { Paragraph } from "@/components/ui/paragraph";
 import { Title } from "@/components/ui/title";
+import Hero from "./components/hero";
 
 const IndexPage = () => {
   return (
-    <Container className="space-y-12">
+    <Container className="space-y-12 " animated={false}>
+      {/*Hero */}
+      <Hero />
       {/* Header */}
-      <section className="space-y-4">
-        <Title variant="h1" align="center">
-          Explorador Cosmos
-        </Title>
-        <Paragraph size="lg" align="center">
-          <Highlight variant="indigo">Ecos Estelares</Highlight> es una
-          aplicación que consume servicios web de la NASA, brindando acceso a
-          información sobre misiones espaciales y descubrimientos astronómicos.
-        </Paragraph>
+      <section className="space-y-4 min-h-[80vh] flex items-center justify-center ">
+        <div className="-mt-16 flex flex-col gap-4">
+          <Title
+            variant="h1"
+            align="center"
+            className="text-white animate-fade-up animate-once animate-ease-in"
+          >
+            Explorador Cosmos
+          </Title>
+          <Paragraph
+            size="sm"
+            align="center"
+            className="text-white/70 animate-fade-up animate-once animate-delay-100 animate-ease-in"
+          >
+            Ecos Estelares - Explora misiones espaciales y descubrimientos
+            astronómicos de la NASA.
+          </Paragraph>
+        </div>
       </section>
     </Container>
   );

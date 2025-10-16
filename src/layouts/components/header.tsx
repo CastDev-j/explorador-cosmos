@@ -64,7 +64,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="bg-stone-950 text-white border-b border-stone-700">
+    <header className="bg-stone-950 text-white border-b border-stone-700 z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
