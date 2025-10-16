@@ -75,7 +75,7 @@ const NASAResults: React.FC<Props> = ({ data }) => {
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-sm">
+                  <div className="absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-sm flex items-center gap-1">
                     {getMediaIcon(String(itemData.media_type))}{" "}
                     {String(itemData.media_type)}
                   </div>
