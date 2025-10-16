@@ -7,10 +7,11 @@ import { Highlight } from "@/components/ui/highlight";
 import { List, ListItem } from "@/components/ui/list";
 import { Caption } from "@/components/ui/caption";
 import { Input } from "@/components/ui/input";
+import { Container } from "@/components/ui/container";
 
 const ComponentsPage = () => {
   return (
-    <div className="max-w-4xl mx-auto p-8 space-y-12">
+    <Container className="space-y-12">
       {/* Header */}
       <section className="space-y-4">
         <Title variant="h1" align="center">
@@ -190,7 +191,7 @@ const ComponentsPage = () => {
           </Caption>
         </div>
       </section>
-    </div>
+    </Container>
   );
 };
 
