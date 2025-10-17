@@ -13,6 +13,7 @@ import type {
   NASAImageAndVideo,
   Item,
 } from "../interfaces/nasa-image-and-video";
+import NASASearchNotFound from "./nasa-details-not-found";
 
 interface Props {
   data: NASAImageAndVideo;
@@ -53,13 +54,15 @@ const NASAResults: React.FC<Props> = ({ data }) => {
 
   return (
     <Container className="space-y-8">
-      <section className="space-y-4 text-center">
-        <Paragraph size="lg">
-          Se encontraron{" "}
-          <Highlight variant="indigo">{metadata.total_hits}</Highlight>{" "}
-          resultados
-        </Paragraph>
-      </section>
+      {metadata.total_hits > 0 && (
+        <section className="space-y-4 text-center">
+          <Paragraph size="lg">
+            Se encontraron{" "}
+            <Highlight variant="indigo">{metadata.total_hits}</Highlight>{" "}
+            resultados
+          </Paragraph>
+        </section>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {items.map((item, index) => {
@@ -137,13 +140,7 @@ const NASAResults: React.FC<Props> = ({ data }) => {
         itemsPerPage={itemsPerPageOptions.nasa}
       />
 
-      {items.length === 0 && (
-        <div className="text-center py-12">
-          <Paragraph size="lg" className="text-stone-500">
-            No se encontraron resultados
-          </Paragraph>
-        </div>
-      )}
+      {items.length === 0 && <NASASearchNotFound />}
     </Container>
   );
 };
