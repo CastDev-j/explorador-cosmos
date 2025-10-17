@@ -4,7 +4,6 @@ interface Route {
 }
 
 export const routes: Route[] = [
-  { label: "componetes", path: "/components" },
   { label: "Inicio", path: "/" },
   { label: "APOD", path: "/apod" },
   { label: "NASA Image and Video Library", path: "/nasa" },

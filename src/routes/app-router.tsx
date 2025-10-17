@@ -1,7 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import { useAuth } from "@clerk/clerk-react";
 import MainLayout from "@/layouts/main-layout";
-import ComponentsPage from "@/modules/components/page";
 import IndexPage from "@/modules/index/index-page";
 import ApodPage from "@/modules/apod/apod-page";
 import MarsRoverPage from "@/modules/mars-rover/mars-rover-page";
@@ -18,8 +17,6 @@ const AppRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/components" element={<ComponentsPage />} />
-
           <Route index element={<IndexPage />} />
           <Route path={"/apod"} element={<ApodPage />} />
           <Route path={"/nasa"} element={<NasaImageVideoPage />} />
