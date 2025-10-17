@@ -135,7 +135,7 @@ const Pagination: React.FC<Props> = ({
                 min-w-[40px] px-3 py-2 rounded-lg border font-medium transition-all duration-200
                 ${
                   isActive
-                    ? "bg-indigo-600 text-white border-indigo-600 shadow-md scale-105"
+                    ? "bg-indigo-600 text-white border-indigo-600 scale-105"
                     : "bg-white  text-stone-700  border-stone-300  hover:bg-stone-50 -700 hover:border-indigo-400"
                 }
               `}

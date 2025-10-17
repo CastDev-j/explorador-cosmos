@@ -74,7 +74,7 @@ const NASAResults: React.FC<Props> = ({ data }) => {
               to={`/nasa/${itemData.nasa_id}`}
               key={itemData.nasa_id || index}
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="bg-white rounded-sm shadow-md overflow-hidden transition-shadow duration-300"
+              className="bg-white rounded-sm  overflow-hidden duration-300 border border-stone-200/50"
             >
               {previewImage && (
                 <div className="relative h-48 bg-stone-200 overflow-hidden">

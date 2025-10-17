@@ -117,8 +117,7 @@ const Header: React.FC = () => {
                     appearance={{
                       elements: {
                         avatarBox: "w-7 h-7",
-                        userButtonTrigger:
-                          "focus:shadow-none hover:bg-stone-700",
+                        userButtonTrigger: "hover:bg-stone-700",
                       },
                     }}
                     fallback={
@@ -147,7 +146,7 @@ const Header: React.FC = () => {
       </div>
 
       <div
-        className="md:hidden overflow-hidden bg-stone-950 border-t border-stone-700 absolute top-16 left-0 right-0 shadow-lg"
+        className="md:hidden overflow-hidden bg-stone-950 border-t border-stone-700 absolute top-16 left-0 right-0"
         ref={mobileMenuRef}
         style={{ display: open ? "block" : "none" }}
       >
@@ -159,7 +158,7 @@ const Header: React.FC = () => {
                   appearance={{
                     elements: {
                       avatarBox: "w-7 h-7",
-                      userButtonTrigger: "focus:shadow-none hover:bg-stone-700",
+                      userButtonTrigger: "hover:bg-stone-700",
                     },
                   }}
                   fallback={

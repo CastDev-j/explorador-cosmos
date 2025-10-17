@@ -127,7 +127,7 @@ const QueryError: React.FC<Props> = ({ error, title, onRetry }) => {
       {onRetry && (
         <button
           onClick={onRetry}
-          className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors duration-200"
         >
           <TbReload className="w-5 h-5" />
           Intentar nuevamente

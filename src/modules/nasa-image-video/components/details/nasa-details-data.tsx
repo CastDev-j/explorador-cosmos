@@ -146,9 +146,9 @@ const NasaDetailsData = ({ data }: Props) => {
           )}
 
           <div className="pt-6 border-t border-stone-200 ">
-            <div className="flex items-center gap-2 text-sm text-stone-500 ">
-              <span>ID de NASA:</span>
-              <code className="px-2 py-1 bg-stone-100  rounded font-mono text-indigo-600 ">
+            <div className="flex items-center gap-2 text-sm text-stone-500 min-w-0">
+              <span className="flex-shrink-0">ID de NASA:</span>
+              <code className="px-2 py-1 bg-stone-100 rounded font-mono text-indigo-600 truncate min-w-0 flex-1">
                 {entry?.nasa_id}
               </code>
             </div>

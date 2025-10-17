@@ -29,7 +29,7 @@ const Auth = () => {
             appearance={{
               elements: {
                 avatarBox: "w-7 h-7",
-                userButtonTrigger: "focus:shadow-none hover:bg-stone-700",
+                userButtonTrigger: "hover:bg-stone-700",
               },
             }}
             fallback={<div className="w-7 h-7 bg-stone-700 rounded-full" />}
