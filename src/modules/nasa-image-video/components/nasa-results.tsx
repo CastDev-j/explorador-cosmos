@@ -4,11 +4,12 @@ import { Paragraph } from "@/components/ui/paragraph";
 import { Caption } from "@/components/ui/caption";
 import { Container } from "@/components/ui/container";
 import { Highlight } from "@/components/ui/highlight";
-import type { NASAImageAndVideo, Item } from "../interfaces";
 import Pagination from "@/components/ui/pagination";
 import { itemsPerPageOptions } from "@/config";
 import { FaAudioDescription, FaImage, FaVideo } from "react-icons/fa6";
 import { FaStickyNote } from "react-icons/fa";
+import type { Item, NASAImageAndVideo } from "../interfaces/NASAImageAndVideo";
+import { Link } from "react-router";
 
 interface Props {
   data: NASAImageAndVideo;
@@ -63,7 +64,8 @@ const NASAResults: React.FC<Props> = ({ data }) => {
           const previewImage = getPreviewImage(item);
 
           return (
-            <article
+            <Link
+              to={`/nasa/${itemData.nasa_id}`}
               key={itemData.nasa_id || index}
               className="bg-white rounded-sm shadow-md overflow-hidden transition-shadow duration-300"
             >
@@ -121,7 +123,7 @@ const NASAResults: React.FC<Props> = ({ data }) => {
                   </Caption>
                 )}
               </div>
-            </article>
+            </Link>
           );
         })}
       </div>

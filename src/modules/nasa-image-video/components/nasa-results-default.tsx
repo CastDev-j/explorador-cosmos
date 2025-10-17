@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { Title } from "@/components/ui/title";
 import { Paragraph } from "@/components/ui/paragraph";
-import { Highlight } from "@/components/ui/highlight";
 import { ImEarth } from "react-icons/im";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -70,11 +69,8 @@ const NASADefaultComponent = () => {
           align="center"
           className="max-w-3xl text-stone-600"
         >
-          Ingresa un término de búsqueda para explorar la{" "}
-          <Highlight variant="indigo">
-            biblioteca multimedia de la NASA
-          </Highlight>
-          .
+          Ingresa un término de búsqueda para explorar la biblioteca multimedia
+          de la NASA .
         </Paragraph>
       </div>
 

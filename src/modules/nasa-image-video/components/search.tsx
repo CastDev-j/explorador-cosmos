@@ -47,7 +47,7 @@ const SearchImageAndVideo = () => {
     <>
       <form
         onSubmit={handleSearch}
-        className="flex max-w-3xl mx-auto my-4 border border-stone-300 rounded-md overflow-hidden transition-all focus-within:ring-2 focus-within:ring-indigo-500 focus-within:border-transparent"
+        className="flex max-w-4xl mx-auto my-4 border border-stone-300 rounded-md overflow-hidden transition-all focus-within:ring-2 focus-within:ring-indigo-500 focus-within:border-transparent"
       >
         <Input
           id="search"
@@ -59,7 +59,7 @@ const SearchImageAndVideo = () => {
         />
         <Button
           type="submit"
-          className="rounded-l-none text-xl rounded-none hover:bg-indigo-700 focus:ring-0 focus:ring-offset-0"
+          className="rounded-l-none text-xl rounded-none px-6 hover:bg-indigo-700 focus:ring-0 focus:ring-offset-0"
         >
           <IoMdSearch />
         </Button>

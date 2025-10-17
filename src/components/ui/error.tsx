@@ -10,10 +10,11 @@ import gsap from "gsap";
 
 interface Props {
   error: Error;
+  title?: string;
   onRetry?: () => void;
 }
 
-const QueryError: React.FC<Props> = ({ error, onRetry }) => {
+const QueryError: React.FC<Props> = ({ error, title, onRetry }) => {
   const contentRef = useRef<HTMLDivElement>(null);
   const iconRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -89,7 +90,7 @@ const QueryError: React.FC<Props> = ({ error, onRetry }) => {
         </div>
       </div>
 
-      <Title variant="h3">Error al cargar los resultados</Title>
+      <Title variant="h3">{title || "Error al cargar los resultados"}</Title>
 
       <Paragraph size="base" className="text-stone-600">
         {getErrorMessage()}

@@ -4,9 +4,10 @@ import MainLayout from "@/layouts/main-layout";
 import ComponentsPage from "@/modules/components/page";
 import IndexPage from "@/modules/index/index-page";
 import ApodPage from "@/modules/apod/apod-page";
-import NasaImageVideoPage from "@/modules/nasa-image-video/nasa-image-video-page";
 import MarsRoverPage from "@/modules/mars-rover/mars-rover-page";
 import EonetPage from "@/modules/eonet/eonet-page";
+import NasaImageVideoPage from "@/modules/nasa-image-video/pages/nasa-image-video-page";
+import NasaImageVideoByIdPage from "@/modules/nasa-image-video/pages/nasa-image-video-by-id-page";
 
 const AppRouter = () => {
   const { isSignedIn } = useAuth();
@@ -22,6 +23,7 @@ const AppRouter = () => {
           <Route index element={<IndexPage />} />
           <Route path={"/apod"} element={<ApodPage />} />
           <Route path={"/nasa"} element={<NasaImageVideoPage />} />
+          <Route path={"/nasa/:nasaId"} element={<NasaImageVideoByIdPage />} />
           <Route path={"/mars"} element={<MarsRoverPage />} />
           <Route path={"/eonet"} element={<EonetPage />} />
           <Route path={"/*"} element={<Navigate to={"/"} />} />

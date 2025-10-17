@@ -1,6 +1,5 @@
-import { sleep } from "@/lib/sleep";
-import type { NASAImageAndVideo } from "../interfaces";
 import { itemsPerPageOptions } from "@/config";
+import type { NASAImageAndVideo } from "../interfaces/NASAImageAndVideo";
 
 const NasaImageAndVideoAPIBaseURL = `https://images-api.nasa.gov/search?page_size=${itemsPerPageOptions.nasa}`;
 
@@ -10,8 +9,6 @@ export async function searchQuery({
   queryKey: [string, string, number];
 }): Promise<NASAImageAndVideo> {
   const [, query, page] = queryKey;
-
-  await sleep(1000);
 
   const response = await fetch(
     `${NasaImageAndVideoAPIBaseURL}&q=${query}&page=${page}`
