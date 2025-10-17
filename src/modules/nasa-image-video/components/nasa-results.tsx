@@ -8,8 +8,11 @@ import Pagination from "@/components/ui/pagination";
 import { itemsPerPageOptions } from "@/config";
 import { FaAudioDescription, FaImage, FaVideo } from "react-icons/fa6";
 import { FaStickyNote } from "react-icons/fa";
-import type { Item, NASAImageAndVideo } from "../interfaces/NASAImageAndVideo";
 import { Link } from "react-router";
+import type {
+  NASAImageAndVideo,
+  Item,
+} from "../interfaces/nasa-image-and-video";
 
 interface Props {
   data: NASAImageAndVideo;
@@ -67,6 +70,7 @@ const NASAResults: React.FC<Props> = ({ data }) => {
             <Link
               to={`/nasa/${itemData.nasa_id}`}
               key={itemData.nasa_id || index}
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="bg-white rounded-sm shadow-md overflow-hidden transition-shadow duration-300"
             >
               {previewImage && (

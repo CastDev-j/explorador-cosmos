@@ -1,38 +1,50 @@
 import type { NASAImageAndVideoByID } from "../../interfaces/nasa-image-and-video-by-id";
-import { Container } from "@/components/ui/container";
 import NASADetailsNotFound from "./nasa-details-not-found";
+import Button from "@/components/ui/button";
+import { formatDate } from "@/lib/formatDate";
+import {
+  IoArrowBack,
+  IoCalendarOutline,
+  IoLocationOutline,
+} from "react-icons/io5";
+import { useNavigate } from "react-router";
 
 interface Props {
   data: NASAImageAndVideoByID;
 }
 
-const formatDate = (iso?: string) => {
-  if (!iso) return "";
-  try {
-    return new Date(iso).toLocaleDateString("es-ES", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
-  } catch {
-    return iso;
-  }
-};
-
 const pickImageHref = (
   links?: { href?: string; rel?: string; render?: string }[]
 ) => {
   if (!links || links.length === 0) return undefined;
-  const preview = links.find(
-    (l) => l.rel === "preview" || l.rel === "thumbnail"
+
+  const large = links.find(
+    (l) => l.rel === "alternate" && l.href?.includes("~large")
   );
+  if (large?.href) return large.href;
+
+  const medium = links.find(
+    (l) => l.rel === "alternate" && l.href?.includes("~medium")
+  );
+  if (medium?.href) return medium.href;
+
+  const preview = links.find((l) => l.rel === "preview");
   if (preview?.href) return preview.href;
-  const image = links.find((l) => l.render === "image");
-  if (image?.href) return image.href;
-  return links[0].href;
+
+  return links[0]?.href;
 };
 
 const NasaDetailsData = ({ data }: Props) => {
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/nasa");
+    }
+  };
+
   type DataEntry = {
     center?: string;
     date_created?: string;
@@ -55,62 +67,95 @@ const NasaDetailsData = ({ data }: Props) => {
     return <NASADetailsNotFound />;
   }
 
-  return (
-    <Container className="space-y-6">
-      {items.map((item: Item, idx: number) => {
-        const entry = item.data?.[0];
-        const img = pickImageHref(item.links);
+  const entry = items[0]?.data?.[0];
+  const img = pickImageHref(items[0]?.links);
 
-        return (
-          <article
-            key={idx}
-            className="flex flex-col md:flex-row gap-4 items-start"
-          >
-            {img && (
-              <div className="w-full md:w-56 flex-shrink-0">
-                <img
-                  src={img}
-                  alt={entry?.title || entry?.nasa_id || "nasa image"}
-                  className="w-full h-auto rounded-md object-cover"
-                />
+  return (
+    <div className="min-h-screen">
+      <div className="border-b border-stone-200">
+        <div className="container mx-auto px-4 py-4">
+          <Button onClick={handleGoBack} variant="ghost" className="gap-2">
+            <IoArrowBack className="size-4" />
+            Volver atrás
+          </Button>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 py-8 md:py-12">
+        <article className="max-w-5xl mx-auto">
+          {img && (
+            <div className="w-full aspect-video md:aspect-[21/9] rounded-xl overflow-hidden shadow-2xl mb-8">
+              <img
+                src={img}
+                alt={entry?.title || entry?.nasa_id || "NASA image"}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          )}
+
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-stone-900  mb-6 leading-tight">
+            {entry?.title}
+          </h1>
+
+          <div className="flex flex-wrap gap-4 md:gap-6 mb-8 text-stone-600 ">
+            {entry?.center && (
+              <div className="flex items-center gap-2">
+                <IoLocationOutline className="size-5 text-indigo-600 " />
+                <span className="font-medium">{entry.center}</span>
               </div>
             )}
-
-            <div className="flex-1">
-              <h3 className="text-2xl font-semibold text-stone-900">
-                {entry?.title}
-              </h3>
-
-              <div className="mt-2 text-sm text-stone-600">
-                <span className="mr-4">{entry?.center}</span>
-                <span>{formatDate(entry?.date_created)}</span>
+            {entry?.date_created && (
+              <div className="flex items-center gap-2">
+                <IoCalendarOutline className="size-5 text-indigo-600 " />
+                <span>{formatDate(entry.date_created)}</span>
               </div>
+            )}
+            {entry?.media_type && (
+              <div className="flex items-center gap-2">
+                <span className="px-3 py-1 bg-indigo-100 /30 text-indigo-700  rounded-full text-sm font-medium capitalize">
+                  {entry.media_type}
+                </span>
+              </div>
+            )}
+          </div>
 
-              {entry?.description && (
-                <p className="mt-3 text-stone-700">{entry.description}</p>
-              )}
+          {entry?.description && (
+            <div className="prose prose-stone -w-none mb-8">
+              <p className="text-lg leading-relaxed text-stone-700 ">
+                {entry.description}
+              </p>
+            </div>
+          )}
 
-              {entry?.keywords && entry.keywords.length > 0 && (
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {entry.keywords.map((k, i) => (
-                    <span
-                      key={i}
-                      className="text-sm bg-stone-100 text-stone-700 px-2 py-1 rounded"
-                    >
-                      {k}
-                    </span>
-                  ))}
-                </div>
-              )}
-
-              <div className="mt-4 text-sm text-stone-500">
-                ID: <span className="font-medium">{entry?.nasa_id}</span>
+          {entry?.keywords && entry.keywords.length > 0 && (
+            <div className="mb-8">
+              <h2 className="text-sm font-semibold text-stone-500  uppercase tracking-wide mb-3">
+                Etiquetas
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {entry.keywords.map((k, i) => (
+                  <span
+                    key={i}
+                    className="text-sm bg-stone-100  text-stone-700  px-3 py-1.5 rounded-full hover:bg-stone-200 -700 transition-colors"
+                  >
+                    {k}
+                  </span>
+                ))}
               </div>
             </div>
-          </article>
-        );
-      })}
-    </Container>
+          )}
+
+          <div className="pt-6 border-t border-stone-200 ">
+            <div className="flex items-center gap-2 text-sm text-stone-500 ">
+              <span>ID de NASA:</span>
+              <code className="px-2 py-1 bg-stone-100  rounded font-mono text-indigo-600 ">
+                {entry?.nasa_id}
+              </code>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
   );
 };
 

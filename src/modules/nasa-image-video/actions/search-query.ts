@@ -1,5 +1,5 @@
 import { itemsPerPageOptions } from "@/config";
-import type { NASAImageAndVideo } from "../interfaces/NASAImageAndVideo";
+import type { NASAImageAndVideo } from "../interfaces/nasa-image-and-video";
 
 const NasaImageAndVideoAPIBaseURL = `https://images-api.nasa.gov/search?page_size=${itemsPerPageOptions.nasa}`;
 

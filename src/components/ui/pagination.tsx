@@ -22,7 +22,7 @@ const Pagination: React.FC<Props> = ({
   const paginationRef = useRef<HTMLDivElement>(null);
 
   const currentPage = Number(searchParams.get("page")) || 1;
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const totalPages = Math.min(Math.ceil(totalItems / itemsPerPage), 833);
 
   useGSAP(() => {
     if (paginationRef.current) {
@@ -90,7 +90,6 @@ const Pagination: React.FC<Props> = ({
 
   return (
     <div className={`flex flex-col items-center gap-4 ${className}`}>
-      {/* Información de resultados */}
       <div className="text-sm text-stone-600 ">
         Mostrando{" "}
         <span className="font-medium text-stone-900 ">{startItem}</span> a{" "}
@@ -99,13 +98,11 @@ const Pagination: React.FC<Props> = ({
         resultados
       </div>
 
-      {/* Controles de paginación */}
       <nav
         ref={paginationRef}
         className="flex items-center gap-1"
         aria-label="Paginación"
       >
-        {/* Página anterior */}
         <button
           onClick={() => goToPage(currentPage - 1)}
           disabled={currentPage === 1}
@@ -115,7 +112,6 @@ const Pagination: React.FC<Props> = ({
           <FaAngleLeft className="w-4 h-4" />
         </button>
 
-        {/* Números de página */}
         {pageNumbers.map((page, index) => {
           if (page === "...") {
             return (
@@ -151,7 +147,6 @@ const Pagination: React.FC<Props> = ({
           );
         })}
 
-        {/* Página siguiente */}
         <button
           onClick={() => goToPage(currentPage + 1)}
           disabled={currentPage === totalPages}
