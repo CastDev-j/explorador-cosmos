@@ -84,7 +84,7 @@ const NasaDetailsData = ({ data }: Props) => {
       <div className="container mx-auto px-4 py-8 md:py-12">
         <article className="max-w-5xl mx-auto">
           {img && (
-            <div className="w-full aspect-video md:aspect-[21/9] rounded-xl overflow-hidden shadow-2xl mb-8">
+            <div className="w-full aspect-video md:aspect-[21/9] rounded-sm overflow-hidden mb-8">
               <img
                 src={img}
                 alt={entry?.title || entry?.nasa_id || "NASA image"}

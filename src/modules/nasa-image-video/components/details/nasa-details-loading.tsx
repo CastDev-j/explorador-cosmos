@@ -11,7 +11,7 @@ const NasaDetailsLoading = () => {
 
       <div className="container mx-auto px-4 py-8 md:py-12">
         <article className="max-w-5xl mx-auto animate-pulse">
-          <Skeleton className="w-full aspect-video md:aspect-[21/9] rounded-xl mb-8" />
+          <Skeleton className="w-full aspect-video md:aspect-[21/9] rounded-sm mb-8" />
 
           <div className="space-y-3 mb-6">
             <Skeleton className="h-10 w-3/4 rounded-lg" />
