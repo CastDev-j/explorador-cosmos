@@ -3,7 +3,7 @@ import SearchImageAndVideo from "../components/search";
 
 const NasaImageVideoPage = () => {
   return (
-    <Container className="space-y-12">
+    <Container className="space-y-12 min-h-[85vh]">
       <SearchImageAndVideo />
     </Container>
   );
