@@ -25,9 +25,6 @@ const NASAResults: React.FC<Props> = ({ data }) => {
 
   const getPreviewImage = (item: Item) => {
     const previewLink = item.links?.find((link) => link.rel === "preview");
-    console.log(previewLink);
-    console.log(item);
-
     return previewLink?.href;
   };
 
@@ -53,9 +50,9 @@ const NASAResults: React.FC<Props> = ({ data }) => {
   };
 
   return (
-    <Container className="space-y-8">
+    <Container className="space-y-8" padding={false}>
       {metadata.total_hits > 0 && (
-        <section className="space-y-4 text-center">
+        <section className="space-y-4 mt-6 text-center">
           <Paragraph size="lg">
             Se encontraron{" "}
             <Highlight variant="indigo">{metadata.total_hits}</Highlight>{" "}

@@ -8,8 +8,8 @@ interface Props {
 
 const NASAResultsLoading: React.FC<Props> = ({ itemCount = 9 }) => {
   return (
-    <Container className="space-y-8">
-      <section className="space-y-4 text-center">
+    <Container className="space-y-8" padding={false}>
+      <section className="space-y-4 text-center mt-6">
         <Skeleton className="w-72 h-9 rounded-sm" rounded={false} />
       </section>
 

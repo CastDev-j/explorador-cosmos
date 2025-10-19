@@ -52,7 +52,7 @@ const NASADefaultComponent = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-[32rem] text-center gap-6 px-4">
+    <div className="flex flex-col justify-center items-center min-h-[32rem] text-center gap-6">
       <div ref={earthRef} className="flex justify-center">
         <div className="w-24 h-24 rounded-full flex items-center justify-center">
           <ImEarth className="size-16 text-indigo-600" />

@@ -66,7 +66,7 @@ const NASASearchNotFound = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center text-center px-4">
+    <div className="flex flex-col justify-center items-center text-center">
       <div ref={searchRef} className="flex justify-center">
         <div className="w-24 h-24 rounded-full   flex items-center justify-center">
           <FaSearch className="size-12 text-indigo-500 " />
