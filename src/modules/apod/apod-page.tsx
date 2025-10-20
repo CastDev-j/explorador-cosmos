@@ -2,8 +2,22 @@ import { Container } from "@/components/ui/container";
 import { Paragraph } from "@/components/ui/paragraph";
 import { Title } from "@/components/ui/title";
 import { Highlight } from "@/components/ui/highlight";
+import { useEffect, useState } from "react";
+import { db } from "@/lib/turso";
+import { fooTable } from "@/db/schema";
 
 const ApodPage = () => {
+  const [test, setTest] = useState<{ bar: string }[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const test = await db.select().from(fooTable);
+      setTest(test);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <Container className="space-y-8">
       <section className="space-y-4">
@@ -18,6 +32,13 @@ const ApodPage = () => {
           profesionales.
         </Paragraph>
       </section>
+      <ol className="space-y-4">
+        {test.map((item, index) => (
+          <li key={index}>
+            {index + 1}.- {item.bar}
+          </li>
+        ))}
+      </ol>
     </Container>
   );
 };
