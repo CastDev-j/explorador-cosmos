@@ -1,7 +1,6 @@
-import { seed } from "drizzle-seed";
 import { createClient } from "@libsql/client";
 import { drizzle } from "drizzle-orm/libsql";
-import { fooTable } from "./schema.js";
+import { favoritesTable } from "./schema.js";
 
 const client = createClient({
   url: "http://127.0.0.1:8080",
@@ -9,36 +8,126 @@ const client = createClient({
 
 const db = drizzle(client);
 
-const cosmicData = [
-  "Nebula de Orión - Una guardería estelar",
-  "Saturno y sus misteriosos anillos",
-  "Vía Láctea - Nuestra galaxia hogar",
-  "Telescopio James Webb descubre nuevos mundos",
-  "Agujero negro supermasivo Sagitario A*",
-  "Las fases lunares y las mareas terrestres",
-  "Cometa Halley - Visitante cada 76 años",
-  "Exoplanetas en la zona habitable",
-  "Púlsares - Faros cósmicos en rotación",
-  "Observatorio ALMA en el desierto de Atacama",
+const userId = "user_34L4ubVMTSXvAPrsWTZjxFgVcMj";
+
+const seedData = [
+  // APOD Favorites
+  {
+    userId,
+    type: "apod" as const,
+    referenceData: { date: "2024-10-15" },
+    isFavorite: 0,
+  },
+  {
+    userId,
+    type: "apod" as const,
+    referenceData: { date: "2024-09-20" },
+    isFavorite: 0,
+  },
+  {
+    userId,
+    type: "apod" as const,
+    referenceData: { date: "2024-08-12" },
+    isFavorite: 1,
+  },
+  // Mars Rover Favorites
+  {
+    userId,
+    type: "mars_rover" as const,
+    referenceData: {
+      rover: "curiosity",
+      sol: 1000,
+      camera: "FHAZ",
+      photoId: "102693",
+    },
+    isFavorite: 1,
+  },
+  {
+    userId,
+    type: "mars_rover" as const,
+    referenceData: {
+      rover: "perseverance",
+      sol: 500,
+      camera: "NAVCAM",
+      photoId: "NRB_0500_0698765432_001ECM_N0261234NCAM00500_01_095J",
+    },
+    isFavorite: 1,
+  },
+  {
+    userId,
+    type: "mars_rover" as const,
+    referenceData: {
+      rover: "curiosity",
+      sol: 2500,
+      camera: "MAST",
+      photoId: "580921",
+    },
+    isFavorite: 1,
+  },
+  // EONET Favorites
+  {
+    userId,
+    type: "eonet" as const,
+    referenceData: { eventId: "EONET_6536" },
+    isFavorite: 1,
+  },
+  {
+    userId,
+    type: "eonet" as const,
+    referenceData: { eventId: "EONET_6421" },
+    isFavorite: 1,
+  },
+  {
+    userId,
+    type: "eonet" as const,
+    referenceData: { eventId: "EONET_6789" },
+    isFavorite: 1,
+  },
+  // Image Library Favorites
+  {
+    userId,
+    type: "image_library" as const,
+    referenceData: { nasaId: "PIA12348" },
+    isFavorite: 1,
+  },
+  {
+    userId,
+    type: "image_library" as const,
+    referenceData: { nasaId: "hubble_ngc2174" },
+    isFavorite: 1,
+  },
+  {
+    userId,
+    type: "image_library" as const,
+    referenceData: { nasaId: "iss067e123456" },
+    isFavorite: 1,
+  },
 ];
 
 async function main() {
-  console.log("Starting cosmic database seeding...");
+  console.log("Starting NASA favorites database seeding...");
 
-  await db.delete(fooTable);
+  await db.delete(favoritesTable);
+  console.log("Cleared existing data");
 
-  await seed(db, { fooTable }).refine((f) => ({
-    fooTable: {
-      count: cosmicData.length,
-      columns: {
-        bar: f.valuesFromArray({
-          values: cosmicData,
-        }),
-      },
-    },
-  }));
+  await db.insert(favoritesTable).values(seedData);
 
-  console.log("Database seeded successfully with cosmic wonders!");
+  console.log(
+    `Database seeded successfully with ${seedData.length} favorites!`
+  );
+  console.log("Breakdown:");
+  console.log(`   - APOD: ${seedData.filter((d) => d.type === "apod").length}`);
+  console.log(
+    `   - Mars Rover: ${seedData.filter((d) => d.type === "mars_rover").length}`
+  );
+  console.log(
+    `   - EONET: ${seedData.filter((d) => d.type === "eonet").length}`
+  );
+  console.log(
+    `   - Image Library: ${
+      seedData.filter((d) => d.type === "image_library").length
+    }`
+  );
 }
 
 main().catch((error) => {
